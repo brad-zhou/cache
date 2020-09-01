@@ -1,0 +1,40 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: cache-provider
+  redis:
+    cluster:
+      nodes: 47.114.49.5:6379
+    password: redis202008
+#      nodes: 10.3.98.153:7000,10.3.98.153:7001,10.3.98.154:7002,10.3.98.154:7003,10.3.98.155:7004,10.3.98.155:7005
+logging:
+  config: classpath:log4j2.xml
+  level:
+    root: info
+
+
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+#  client:
+#    serviceUrl:
+#      defaultZone: http://10.3.98.154:1111/eureka/
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: false #调试用 超时不熔断
+#        isolation:
+#          strategy: SEMAPHORE #隔离策略为信息号量
+
+## 多租户开关
+saas:
+  enabled: false
+
+## 缓存开关
+cache:
+  enabled: true

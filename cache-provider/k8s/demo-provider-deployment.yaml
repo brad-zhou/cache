@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cache-provider-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: cache-provider
+    spec:
+      containers:
+        - name: cache-provider
+          image: 10.3.98.241/demo/demo-provider
+          ports:
+            - containerPort: 2000
+#          volumeMounts:
+#            - mountPath: /sceo-log/log
+#              name: go-logs
+#      volumes:
+#      - name: go-logs
+#        hostPath:
+#          path: /sceo-log/log
